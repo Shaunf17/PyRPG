@@ -1,4 +1,5 @@
 from player import Player
+from game_state import GameState
 
 class Game:
     def __init__(self):
@@ -14,11 +15,6 @@ class Game:
             action = self.parser.parse(command)
             if action:
                 action.execute(self)
-
-class GameState:
-    def __init__(self):
-        self.location = None
-        self.inventory = []
 
 class World:
     def __init__(self):
