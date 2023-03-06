@@ -1,5 +1,6 @@
 from player import Player
 from game_state import GameState
+import os
 
 class Game:
     def __init__(self):
@@ -9,7 +10,12 @@ class Game:
         self.parser = Parser()
 
     def run(self):
+        os.system("cls")
         print("Welcome to the game!")
+
+        self.player.create()
+        print(self.player)
+
         while True:
             command = input("> ")
             action = self.parser.parse(command)
@@ -70,7 +76,3 @@ class HelpAction(Action):
     def execute(self, game):
         # Display a list of available commands
         print("ayy, stfu")
-
-if __name__ == "__main__":
-    game = Game()
-    game.run()

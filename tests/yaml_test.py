@@ -9,4 +9,6 @@ with open(path) as f:
     logging.info("Opening file: " + path)
     options = yaml.safe_load(f)
 
-    print(options["race"])
+    print(options["race"]["human"]["name"])
+
+    print(options["class"]["mage"]["multipliers"])
