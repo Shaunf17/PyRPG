@@ -32,10 +32,15 @@ class Map:
 
 class Parser:
     def parse(self, command):
-        match command:
+        # Split arg in command and argument
+        command_args = str.split(command)
+
+        match command_args[0]:
             case "n" | "s" | "e" | "w":
                 # Move in a direction
-                return MoveAction(command)
+                return MoveAction(command_args)
+            case "go":
+                return GoAction(command_args)
             case "look":
                 # Look around the current location
                 return LookAction()
@@ -60,6 +65,11 @@ class MoveAction(Action):
 
     def execute(self, game):
         # Move the player to the new location
+        pass
+
+class GoAction(Action):
+    def execture(self, game):
+        # Move to specific location
         pass
 
 class LookAction(Action):

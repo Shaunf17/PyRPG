@@ -3,36 +3,36 @@ race:
   human:
       name: Human
       attributes:
-        - strength: 5
-        - agility: 6
-        - endurance: 7
-        - wisdom: 5
-        - intelligence: 7
+        strength: 5
+        agility: 6
+        endurance: 7
+        wisdom: 5
+        intelligence: 7
 
   dwarf:
       name: "Dwarf"
       attributes:
-        - strength: 8
-        - agility: 3
-        - endurance: 8
-        - wisdom: 6
-        - intelligence: 5
+        strength: 8
+        agility: 3
+        endurance: 8
+        wisdom: 6
+        intelligence: 5
 
   elf:
       name: "Elf"
       attributes:
-        - strength: 3
-        - agility: 7
-        - endurance: 4
-        - wisdom: 8
-        - intelligence: 9
+        strength: 3
+        agility: 7
+        endurance: 4
+        wisdom: 8
+        intelligence: 9
 
 class: 
   warrior:
     name: "Warrior"
     multipliers:
-      - strength: 5
-      - endurance: 4
+      strength: 5
+      endurance: 4
 
   rogue:
     name: "Rogue"

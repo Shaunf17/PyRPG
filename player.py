@@ -1,7 +1,8 @@
+from character import Character
 import yaml
 import os
 
-class Player:
+class Player(Character):
     def __init__(self):
         self.name = ""
         self.race = None
@@ -19,19 +20,21 @@ class Player:
     def create(self):
         self.name = input("Enter Name: ")
         print_races()
-        self.race = parse_race(input("Choose Race: "))
+        parse_race(input("Choose Race: "), self)
+        print(self.attributes["strength"])
 
     def attack_action(self, target):
         attack_power = self.strength * self.multipliers
 
-def parse_race(txt: str):
+def parse_race(txt: str, player: Player):
     with open("player_options.yaml") as f:
         options = yaml.safe_load(f)
 
         while not (txt in options["race"]):
             txt = input("Oops, that's not a valid race, try again: ")
-
-        return options["race"][txt]["name"]
+        
+        player.race = options["race"][txt]["name"]
+        player.attributes = options["race"][txt]["attributes"]
 
 def parse_character_class(txt: str):
     with open("player_options.yaml") as f:

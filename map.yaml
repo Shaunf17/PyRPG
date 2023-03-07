@@ -1,0 +1,13 @@
+---
+woods_clearing:
+  name: "Woods (Clearing)"
+  description: "You stand in a clearing in the middle of the woods"
+  north: "woods_river"
+  east: "woods_hut"
+  south: "woods_ruins"
+  west: "woods_cave"
+
+woods_cave:
+  name: "Woods (Cave Entrance)"
+  description: "You are on the outer edges of the woods. There is a large cave opening at the foot of a cliff"
+
