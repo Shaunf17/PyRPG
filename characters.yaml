@@ -1,0 +1,21 @@
+---
+# Common 
+race:
+  human: &human_anchor
+
+  dwarf:
+
+  elf:
+
+  goblin: &goblin_anchor
+    name: "Goblin"
+
+---
+# NPCs
+
+
+---
+# Enemies
+goblin:
+  race:
+    <<: *goblin_anchor

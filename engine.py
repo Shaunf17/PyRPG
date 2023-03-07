@@ -1,3 +1,4 @@
+from character import Character, CharacterEvent
 from player import Player
 from game_state import GameState
 import os
@@ -8,6 +9,8 @@ class Game:
         self.world = World()
         self.player = Player()
         self.parser = Parser()
+
+        self.player.death_subscribe(game_over)
 
     def run(self):
         os.system("cls")
@@ -21,6 +24,11 @@ class Game:
             action = self.parser.parse(command)
             if action:
                 action.execute(self)
+
+def game_over():
+    os.system("cls")
+    print("GAME OVER")
+    exit()
 
 class World:
     def __init__(self):
@@ -47,6 +55,9 @@ class Parser:
             case "inventory":
                 # Check the player's inventory
                 return InventoryAction()
+            case "battle" | "fight":
+                # Fight/Battle action
+                return FightAction()
             case "help":
                 # Display a help message
                 return HelpAction()
@@ -81,6 +92,18 @@ class InventoryAction(Action):
     def execute(self, game):
         # Display the player's inventory
         pass
+
+class FightAction(Action):
+    def execute(self, game: Game):
+        # TODO: implement proper method
+        enemy = Character("MeeMar", "Goblin", None, {"strength": 3}, {}, 10, 10)
+        print(f'You encounter {enemy.name} ({enemy.race}), what do you do?')
+
+        while (enemy.health > 0):
+            if input("> ") == "attack":
+                print(f'You attack {enemy.name}')
+                game.player.attack_action(enemy)
+                
 
 class HelpAction(Action):
     def execute(self, game):
